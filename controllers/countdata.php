@@ -5,12 +5,11 @@
 define('END_POINT', 'xxxxxxxxxxxxxxxxxxxxxxxx');
 define('TOKEN', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
 
-//Types
-
 //define the json ready url
 $nurl = sprintf('%s/issues.json?key=%s&project_id=499&status_id=1', END_POINT, TOKEN);
 $ourl = sprintf('%s/issues.json?key=%s&project_id=499&status_id=*', END_POINT, TOKEN);
 $onedayurl = sprintf('%s/issues.json?key=%s&query_id=54&project_id=499', END_POINT, TOKEN);
+
 //function to count the json result
 function countData($url){
 $ch = curl_init();
