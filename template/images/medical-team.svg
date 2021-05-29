@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Unified Call Center - Ticket System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="description" content="Redmine" />
+<meta name="keywords" content="issue,bug,tracker" />
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="7B/RL396rdgsQWp/6peduZ+G/gqE1lezsQcJqMgdnz3qUh+f6j6c/ilLrt2GhucPouQ90KktMCX2v5Ozv6WzMw==" />
+<link rel='shortcut icon' href='/favicon.ico?1515440299' />
+<link rel="stylesheet" media="all" href="/stylesheets/jquery/jquery-ui-1.11.0.css?1515440299" />
+<link rel="stylesheet" media="all" href="/stylesheets/application.css?1603627970" />
+<link rel="stylesheet" media="all" href="/stylesheets/responsive.css?1515440299" />
+
+<script src="/javascripts/jquery-1.11.1-ui-1.11.0-ujs-3.1.4.js?1515440299"></script>
+<script src="/javascripts/application.js?1603627970"></script>
+<script src="/javascripts/responsive.js?1515440299"></script>
+<script>
+//<![CDATA[
+$(window).load(function(){ warnLeavingUnsaved('The current page contains unsaved text that will be lost if you leave this page.'); });
+//]]>
+</script>
+
+
+<!-- [view customize plugin] path:/login -->
+<link rel="stylesheet" media="screen" href="/plugin_assets/view_customize/stylesheets/view_customize.css?1598851311" /><script type="text/javascript">
+//<![CDATA[
+ViewCustomize = { context: {"user":{"id":4,"login":"","admin":false,"firstname":"","lastname":"Anonymous","lastLoginOn":null,"groups":[],"apiKey":null,"customFields":[]}} };
+//]]>
+</script>
+<!-- view customize id:1 -->
+<script type="text/javascript">
+//<![CDATA[
+// link custom fields (narrow down children according to parent value)
+// 
+// Path pattern: /issues/
+// Type: JavaScript
+$(function() {
+
+  var parentFieldId = 'issue_custom_field_values_53';
+  var childFieldId = 'issue_custom_field_values_57';
+
+  // indicates the condition
+  var isTarget = function(child, parent) {
+    // target prefix matches
+    return child.text().indexOf(parent.text()) == 0;
+  }
+
+  // Filter child fields
+  var narrowChildField = function() {
+
+    // Item selected by parent
+    var parentSelected = $('#' + parentFieldId + ' > option:selected');
+
+    $('#' + childFieldId + ' > option').each(function() {
+
+      var child = $(this);
+
+      // narrow down to match
+      // (In IE, option is not hidden by display:none, so disabled to disable selection)
+      if (isTarget(child, parentSelected)) {
+        child.show();
+        child.prop('disabled', false);
+      } else {
+        child.hide();
+        child.prop('disabled', true);
+      }
+    });
+  }
+
+  // filter children by current
+  narrowChildField();
+
+  // Narrow the child fields when the parent field changes
+  $('#all_attributes').change(function(e) {
+    if (e.target.id == parentFieldId) {
+      narrowChildField();
+      $('#issue_custom_field_values_57').val('');
+    }
+  });
+
+  // Since the DOM is replaced when the status changes etc.
+  // Reflect the refinement every time the content of the form is rewritten
+  var _replaceIssueFormWith = replaceIssueFormWith;
+  replaceIssueFormWith = function(html){
+
+    _replaceIssueFormWith(html);
+
+    narrowChildField();
+  };
+});
+//]]>
+</script>
+<!-- view customize id:7 -->
+<script type="text/javascript">
+//<![CDATA[
+// link custom fields (narrow down children according to parent value)
+// 
+// Path pattern: /issues/
+// Type: JavaScript
+$(function() {
+
+  var parentFieldId = 'issue_custom_field_values_59';
+  var childFieldId = 'issue_custom_field_values_60';
+
+  // indicates the condition
+  var isTarget = function(child, parent) {
+    // target prefix matches
+    return child.text().indexOf(parent.text()) == 0;
+  }
+
+  // Filter child fields
+  var narrowChildField = function() {
+
+    // Item selected by parent
+    var parentSelected = $('#' + parentFieldId + ' > option:selected');
+
+    $('#' + childFieldId + ' > option').each(function() {
+
+      var child = $(this);
+
+      // narrow down to match
+      // (In IE, option is not hidden by display:none, so disabled to disable selection)
+      if (isTarget(child, parentSelected)) {
+        child.show();
+        child.prop('disabled', false);
+      } else {
+        child.hide();
+        child.prop('disabled', true);
+      }
+    });
+  }
+
+  // filter children by current
+  narrowChildField();
+
+  // Narrow the child fields when the parent field changes
+  $('#all_attributes').change(function(e) {
+    if (e.target.id == parentFieldId) {
+      narrowChildField();
+      $('#issue_custom_field_values_60').val('');
+    }
+  });
+
+  // Since the DOM is replaced when the status changes etc.
+  // Reflect the refinement every time the content of the form is rewritten
+  var _replaceIssueFormWith = replaceIssueFormWith;
+  replaceIssueFormWith = function(html){
+
+    _replaceIssueFormWith(html);
+
+    narrowChildField();
+  };
+});
+//]]>
+</script>
+<!-- view customize id:10 -->
+<style type="text/css">
+.project-call-tracker #issue-form #attachments_form, .project-call-tracker #issue-form .attachments_form { 
+ 
+  display: none;
+ 
+}
+</style>
+<!-- view customize id:22 -->
+<script type="text/javascript">
+//<![CDATA[
+$(function() {
+
+  var parentFieldId = 'issue_custom_field_values_70';
+  var childFieldId = 'issue_custom_field_values_71';
+
+  // indicates the condition
+  var isTarget = function(child, parent) {
+    // target prefix matches
+    return child.text().indexOf(parent.text()) == 0;
+  }
+
+  // Filter child fields
+  var narrowChildField = function() {
+
+    // Item selected by parent
+    var parentSelected = $('#' + parentFieldId + ' > option:selected');
+
+    $('#' + childFieldId + ' > option').each(function() {
+
+      var child = $(this);
+
+      // narrow down to match
+      // (In IE, option is not hidden by display:none, so disabled to disable selection)
+      if (isTarget(child, parentSelected)) {
+        child.show();
+        child.prop('disabled', false);
+      } else {
+        child.hide();
+        child.prop('disabled', true);
+      }
+    });
+  }
+
+  // filter children by current
+  narrowChildField();
+
+  // Narrow the child fields when the parent field changes
+  $('#all_attributes').change(function(e) {
+    if (e.target.id == parentFieldId) {
+      narrowChildField();
+      $('#issue_custom_field_values_71').val('');
+    }
+  });
+
+  // Since the DOM is replaced when the status changes etc.
+  // Reflect the refinement every time the content of the form is rewritten
+  var _replaceIssueFormWith = replaceIssueFormWith;
+  replaceIssueFormWith = function(html){
+
+    _replaceIssueFormWith(html);
+
+    narrowChildField();
+  };
+});
+//]]>
+</script>
+<!-- view customize id:28 -->
+<script type="text/javascript">
+//<![CDATA[
+$(function() {
+
+  var parentFieldId = 'issue_project_id';
+  var childFieldId = 'issue_assigned_to_id';
+
+  // indicates the condition
+  var isTarget = function(child, parent) {
+    // target prefix matches
+    return child.text().indexOf(parent.text()) == 0;
+  }
+
+  // Filter child fields
+  var narrowChildField = function() {
+
+    // Item selected by parent
+    var parentSelected = $('#' + parentFieldId + ' > option:selected');
+
+    $('#' + childFieldId + ' > option').each(function() {
+
+      var child = $(this);
+
+      // narrow down to match
+      // (In IE, option is not hidden by display:none, so disabled to disable selection)
+      if (isTarget(child, parentSelected)) {
+        child.show();
+        child.prop('disabled', false);
+      } else {
+        child.hide();
+        child.prop('disabled', true);
+      }
+    });
+  }
+
+  // filter children by current
+  narrowChildField();
+
+  // Narrow the child fields when the parent field changes
+  $('#all_attributes').change(function(e) {
+    if (e.target.id == parentFieldId) {
+      narrowChildField();
+      $('#issue_assigned_to_id').val('');
+    }
+  });
+
+  // Since the DOM is replaced when the status changes etc.
+  // Reflect the refinement every time the content of the form is rewritten
+  var _replaceIssueFormWith = replaceIssueFormWith;
+  replaceIssueFormWith = function(html){
+
+    _replaceIssueFormWith(html);
+
+    narrowChildField();
+    $('#issue_assigned_to_id').val('0');
+  };
+});
+//]]>
+</script>
+<!-- view customize id:88 -->
+<style type="text/css">
+.project-vaccine #issue-form #attachments_form, .project-vaccine #issue-form .attachments_form { 
+ 
+  display: none;
+ 
+}
+</style>
+<!-- view customize id:89 -->
+<style type="text/css">
+.project-pcr #issue-form #attachments_form, .project-pcr #issue-form .attachments_form { 
+ 
+  display: none;
+ 
+}
+</style>
+
+<!-- page specific tags -->
+</head>
+<body class="controller-account action-login">
+
+<div id="wrapper">
+
+<div class="flyout-menu js-flyout-menu">
+
+
+        <div class="flyout-menu__search">
+            <form action="/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+            
+            <label class="search-magnifier search-magnifier--flyout" for="flyout-search">&#9906;</label>
+            <input type="text" name="q" id="flyout-search" class="small js-search-input" placeholder="Search" />
+</form>        </div>
+
+
+
+    <h3>General</h3>
+    <span class="js-general-menu"></span>
+
+    <span class="js-sidebar flyout-menu__sidebar"></span>
+
+    <h3>Profile</h3>
+    <span class="js-profile-menu"></span>
+
+</div>
+
+<div id="wrapper2">
+<div id="wrapper3">
+<div id="top-menu">
+    <div id="account">
+        <ul><li><a class="login" href="/login">Sign in</a></li><li><a class="register" href="/account/register">Register</a></li></ul>    </div>
+    
+    <ul><li><a class="home" href="/">Home</a></li><li><a class="projects" href="/projects">Projects</a></li><li><a class="link" href="http://172.16.109.156:8080">Knowledgebase</a></li><li><a class="reports" href="http://172.16.109.156:9001/">Reports</a></li></ul></div>
+
+<div id="header">
+
+    <a href="#" class="mobile-toggle-button js-flyout-menu-toggle-button"></a>
+
+    <div id="quick-search">
+        <form action="/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+        <input type="hidden" name="scope" />
+        
+        <label for='q'>
+          <a accesskey="4" href="/search">Search</a>:
+        </label>
+        <input type="text" name="q" id="q" size="20" class="small" accesskey="f" />
+</form>        <div id="project-jump" class="drdn"><span class="drdn-trigger">Jump to a project...</span><div class="drdn-content"><div class="quick-search"><input type="text" name="q" id="projects-quick-search" value="" class="autocomplete" data-automcomplete-url="/projects/autocomplete.js?jump=account" autocomplete="off" /></div><div class="drdn-items projects selection"></div><div class="drdn-items all-projects selection"><a href="/projects?jump=account">All Projects</a></div></div></div>
+    </div>
+
+    <h1>Unified Call Center - Ticket System</h1>
+
+</div>
+
+<div id="main" class="nosidebar">
+    <div id="sidebar">
+        
+        
+    </div>
+
+    <div id="content">
+        
+        
+
+<div id="login-form">
+  <form onsubmit="return keepAnchorOnSignIn(this);" action="/login" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="WZJklMS4CYpzaw9uv3QF2mgJ2ltONII7INoztEahF1Vf36okUfw4rHZhy8zTZX9sVWsZgWPP5a1nYqmvMRk7Ww==" />
+  <input type="hidden" name="back_url" value="http://172.16.109.156/attachments/2385/medical-team.svg" />
+  
+  <label for="username">Login</label>
+  <input type="text" name="username" id="username" tabindex="1" />
+  
+  <label for="password">
+    Password
+    
+  </label>
+  <input type="password" name="password" id="password" tabindex="2" />
+  
+  
+    <label for="autologin"><input type="checkbox" name="autologin" id="autologin" value="1" tabindex="4" /> Stay logged in</label>
+  
+  <input type="submit" name="login" value="Login" tabindex="5" id="login-submit" />
+</form></div>
+
+
+
+<script>
+//<![CDATA[
+$('#username').focus();
+//]]>
+</script>
+
+        
+        <div style="clear:both;"></div>
+    </div>
+</div>
+</div>
+
+<div id="ajax-indicator" style="display:none;"><span>Loading...</span></div>
+<div id="ajax-modal" style="display:none;"></div>
+
+<div id="footer">
+  <div class="bgl"><div class="bgr">
+    Powered by <a href="https://www.redmine.org/">Redmine</a> &copy; 2006-2017 Jean-Philippe Lang
+  </div></div>
+</div>
+</div>
+</div>
+
+</body>
+</html>
