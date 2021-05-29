@@ -2,8 +2,8 @@
 //Created by Kevin Agustin Bongcawel
 
 //define the requirements
-define('END_POINT', 'http://172.16.109.156');
-define('TOKEN', 'f28d5f3109b0d6e2e8d8b8d11b08769571adea90');
+define('END_POINT', 'xxxxxxxxxxxxxxxxxxxxxxxx');
+define('TOKEN', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
 
 //Types
 
@@ -24,15 +24,4 @@ $output =  count($jsoninphp['issues']);
 
 return $output;
 }
-
-//TAT
-//$getTAT = "select avg(extract(epoch from closed_on - created_on)) as avg_days from issues where tracker_id = '29' and status_id = '14' and project_id = '499'";
-//$getTATq = pg_exec($db_handle, $getTAT);
-//$getTATres = pg_fetch_assoc($getTATq);
-//$finalTAT = round($getTATres['avg_days']/86400,0);
-
-function countTicketDuration(){
-
-}
-
 ?>
